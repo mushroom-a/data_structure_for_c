@@ -53,12 +53,9 @@ dkms.conf
 
 # debug information files
 *.dwo
-<<<<<<< HEAD
-=======
 
 # 编辑器/IDE 配置
 .vscode/
 .vs/
 *.swp
 *~
->>>>>>> origin/trunk
