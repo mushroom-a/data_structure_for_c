@@ -10,11 +10,11 @@ typedef struct {
     EdgeType edge[MAXSIZE][MAXSIZE];
     int vertexNum;
     int edgeNum;
-} Graph;
+} Mat_Graph;
 
 int visited[MAXSIZE];
 
-void createGraph(Graph* G){
+void createMat_Graph(Mat_Graph* G){
     G->vertexNum = 9;
     G->edgeNum = 15;
     G->vertex[0] = 'A';
@@ -73,7 +73,7 @@ void createGraph(Graph* G){
 }
 
 //深度优先搜索
-void dfs(Graph G, int i){
+void dfs(Mat_Graph G, int i){
     visited[i] = 1;
     printf("%c ", G.vertex[i]);
 
@@ -85,7 +85,7 @@ void dfs(Graph G, int i){
 }
 
 //广度优先搜索
-void bfs(Graph G, int i){
+void bfs(Mat_Graph G, int i){
     int queue[MAXSIZE];
     int front = 0;  
     int rear = 0;
@@ -110,8 +110,8 @@ void bfs(Graph G, int i){
 }
 
 int main(){
-    Graph G;
-    createGraph(&G);
+    Mat_Graph G;
+    createMat_Graph(&G);
 
     //深度优先搜索
     for(int i=0; i<G.vertexNum; i++){

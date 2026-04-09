@@ -12,9 +12,9 @@ typedef struct {
     EdgeType edge[MAXSIZE][MAXSIZE];
     int vertexNum;
     int edgeNum;
-} Graph;
+} Mat_Graph;
 
-void createGraph(Graph* G) {
+void createMat_Graph(Mat_Graph* G) {
     G->vertexNum = 9;
     G->edgeNum = 16;
     for(int i=0; i < G->vertexNum; i++) {
@@ -64,7 +64,7 @@ void createGraph(Graph* G) {
     }
 }
 
-int minDist(Graph G, int dist[], int found[]) {
+int minDist(Mat_Graph G, int dist[], int found[]) {
     int min = MAX;
     int minIndex = -1;
     for(int i=0; i < G.vertexNum; i++) {
@@ -76,7 +76,7 @@ int minDist(Graph G, int dist[], int found[]) {
     return minIndex;
 }
 
-void dijkstra(Graph G, int start, int end) {
+void dijkstra(Mat_Graph G, int start, int end) {
     int found[MAXSIZE];
     int path[MAXSIZE];
     int dist[MAXSIZE];
@@ -116,7 +116,7 @@ void dijkstra(Graph G, int start, int end) {
 
 }
 
-void floyd(Graph G) {
+void floyd(Mat_Graph G) {
     int dist[MAXSIZE][MAXSIZE];
     int path[MAXSIZE][MAXSIZE];
     for(int i=0; i < G.vertexNum; i++) {
@@ -154,8 +154,8 @@ void floyd(Graph G) {
 }
 
 int main() {
-    Graph G;
-    createGraph(&G);
+    Mat_Graph G;
+    createMat_Graph(&G);
     dijkstra(G, 0, 8);
     floyd(G);
 }

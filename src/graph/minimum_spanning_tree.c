@@ -12,7 +12,7 @@ typedef struct {
     EdgeType edge[MAXSIZE][MAXSIZE];
     int vertexNum;
     int edgeNum;
-} Graph;
+} Mat_Graph;
 
 typedef struct {
     int begin;
@@ -20,7 +20,7 @@ typedef struct {
     int weight;
 } Edge;
 
-void createGraph(Graph* G){
+void createMat_Graph(Mat_Graph* G){
     G->vertexNum = 9;
     G->edgeNum = 15;
     G->vertex[0] = 'A';
@@ -84,7 +84,7 @@ void createGraph(Graph* G){
 }
 
 //prim算法，依次找顶点
-void prim(Graph G){
+void prim(Mat_Graph G){
     int i, j, k;
     int min;
     int weights[MAXSIZE];//每次循环时下标对应点的可选边的最小权重
@@ -121,7 +121,7 @@ void prim(Graph G){
     }
 }
 
-void initEdge(Edge* edges, Graph G){
+void initEdge(Edge* edges, Mat_Graph G){
     int k = 0;
     for(int i=0; i < G.vertexNum; i++){
         for(int j=i+1; j < G.vertexNum; j++){
@@ -155,7 +155,7 @@ int find(int* parent, int f){
     return f;
 }
 
-void kruskal(Graph G){
+void kruskal(Mat_Graph G){
     Edge edges[MAXEDGE];
     initEdge(edges, G);
     sortEdge(edges, G.edgeNum);
@@ -177,8 +177,8 @@ void kruskal(Graph G){
 }
 
 int main(){
-    Graph G;
-    createGraph(&G);
+    Mat_Graph G;
+    createMat_Graph(&G);
 
     prim(G);
     printf("\n");
